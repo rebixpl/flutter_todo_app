@@ -14,15 +14,23 @@ class TodosRepositoryImpl extends TodosRepository {
   late final String path = 'todos.json';
 
   @override
-  Future<void> deleteTodo(Todo todo) async {
+  Future<void> deleteAllTodos() async {
     // Delete files by path
     await files.delete(path);
   }
 
   @override
-  Future<void> deleteAllTodos() {
-    // TODO: implement deleteAllTodos
-    throw UnimplementedError();
+  Future<void> deleteTodo(Todo todo) async {
+    final todos = await loadTodos();
+
+    // Remove the todo from the list
+    final newTodos = todos.values.where((t) => t.id != todo.id).toList();
+
+    // Save the new list
+    await files.write(
+      path,
+      jsonEncode(Todos(values: newTodos).toJson()),
+    );
   }
 
   @override
@@ -44,8 +52,20 @@ class TodosRepositoryImpl extends TodosRepository {
   }
 
   @override
-  Future<void> saveTodo(Todo todo) {
-    // TODO: implement saveTodo
-    throw UnimplementedError();
+  Future<void> saveTodo(Todo todo) async {
+    // load the todos
+    final todos = await loadTodos();
+
+    // remove the todo from the list if it exists
+    final newTodos = todos.values.where((t) => t.id != todo.id).toList();
+
+    // Add the new todo to the list
+    newTodos.add(todo);
+
+    // Save the new list
+    await files.write(
+      path,
+      jsonEncode(Todos(values: newTodos).toJson()),
+    );
   }
 }
