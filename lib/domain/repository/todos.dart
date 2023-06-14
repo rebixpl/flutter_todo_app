@@ -1,7 +1,9 @@
-import 'package:flutter_todo_app/domain/model/todo.dart';
+import 'package:flutter_todo_app/domain/model/todos.dart';
+
+import '../model/todo.dart';
 
 abstract class TodosRepository {
-  Future<List<Todo>> loadTodos();
+  Future<Todos> loadTodos();
 
   Future<void> saveTodo(Todo todo);
 
