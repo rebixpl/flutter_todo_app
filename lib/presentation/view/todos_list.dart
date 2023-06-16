@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_todo_app/presentation/viewmodel/module.dart';
 import 'package:go_router/go_router.dart';
+
+import '../viewmodel/module.dart';
 
 class TodosList extends ConsumerWidget {
   const TodosList({super.key});

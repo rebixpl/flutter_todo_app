@@ -1,4 +1,4 @@
-import 'package:flutter_todo_app/domain/model/todos.dart';
+import '../model/todos.dart';
 
 abstract class GetTodosUseCase {
   Future<Todos> execute();

@@ -1,6 +1,7 @@
-import 'package:flutter_todo_app/data/repository/module.dart';
-import 'package:flutter_todo_app/domain/model/todos.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../data/repository/module.dart';
+import '../../domain/model/todos.dart';
 
 part 'module.g.dart';
 

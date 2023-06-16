@@ -1,5 +1,5 @@
-import 'package:flutter_todo_app/domain/model/todo.dart';
+import '../model/todo.dart';
 
-abstract class GetTodoUseCase {
+abstract class SaveTodoUseCase {
   Future<void> execute(Todo todo);
 }

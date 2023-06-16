@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/presentation/router.dart';
+
+import 'router.dart';
 
 class TodosApp extends StatelessWidget {
   const TodosApp({super.key});
