@@ -1,5 +1,6 @@
-import 'package:flutter_todo_app/domain/model/todo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'todo.dart';
 
 part 'todos.freezed.dart';
 part 'todos.g.dart';
