@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo_app/presentation/viewmodel/module.dart';
-
-import '../../data/repository/module.dart';
+import 'package:go_router/go_router.dart';
 
 class TodosList extends ConsumerWidget {
   const TodosList({super.key});
@@ -11,6 +10,7 @@ class TodosList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Todos'),
       ),
       body: ref.watch(getTodosProvider).map(
@@ -33,6 +33,14 @@ class TodosList extends ConsumerWidget {
               },
             ),
           ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          context.go('/todos/new');
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Add Todo'),
+        tooltip: 'Add Todo',
+      ),
     );
   }
 }
