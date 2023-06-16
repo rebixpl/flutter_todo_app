@@ -14,7 +14,7 @@ class TodosList extends ConsumerWidget {
         automaticallyImplyLeading: false,
         title: const Text('Todos'),
       ),
-      body: ref.watch(getTodosProvider).map(
+      body: ref.watch(todosListProvider).map(
             loading: (_) => const Center(
               child: CircularProgressIndicator(),
             ),

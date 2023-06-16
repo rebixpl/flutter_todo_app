@@ -1,13 +1,13 @@
+import 'package:flutter_todo_app/domain/usecases/module.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../data/repository/module.dart';
 import '../../domain/model/todos.dart';
 
 part 'module.g.dart';
 
 @riverpod
-Future<Todos> getTodos(GetTodosRef ref) async {
-  final todos = ref.watch(todosProvider);
-  final items = await todos.loadTodos();
+Future<Todos> todosList(TodosListRef ref) async {
+  final usecase = ref.watch(getTodosProvider);
+  final items = await usecase.execute();
   return items;
 }
